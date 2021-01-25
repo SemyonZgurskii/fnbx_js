@@ -11,21 +11,27 @@
 
   <main class="main-content">
     <div class="tracker">
-      <input class="tracker__point-input" type="text" placeholder="введите название новой точки">
+      <div class="tracker__input-wrapper">
+        <input class="tracker__point-input" type="text" placeholder="введите название новой точки">
+      </div>
       <div class="tracker__map" id="map"></div>
       <div class="tracker__points-list">
         <ul class="drag-list">
           <li class="drag-list__item">
-            Москва
+            <p class="drag-list__name">Москва</p>
+            <button class="drag-list__close-button" type="button" aria-label="удалить пункт"></button>
           </li>
           <li class="drag-list__item">
-            Санкт-Петербург
+            <p class="drag-list__name">Санкт-Петербург</p>
+            <button class="drag-list__close-button" type="button" aria-label="удалить пункт"></button>
           </li>
           <li class="drag-list__item">
-            Чебоксары
+            <p class="drag-list__name">Чебоксары</p>
+            <button class="drag-list__close-button" type="button" aria-label="удалить пункт"></button>
           </li>
           <li class="drag-list__item">
-            Казань
+            <p class="drag-list__name">Казань</p>
+            <button class="drag-list__close-button" type="button" aria-label="удалить пункт"></button>
           </li>
         </ul>
       </div>
