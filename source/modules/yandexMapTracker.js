@@ -1,3 +1,5 @@
+import {changeArrayElementsOrder} from "../utils";
+
 class YandexMapTracker {
   constructor() {
     this._ymaps = window.ymaps;
@@ -107,6 +109,17 @@ class YandexMapTracker {
     })
 
     this._myMap.geoObjects.add(mark);
+  }
+
+  _deleteMarkFromMap(mark) {
+    this._myMap.geoObjects.remove(mark);
+  }
+
+  _changeMarksOrder(nearbyPoint, movedPoint, pastePosition) {
+    const nearbyMark = this._marks.find((mark) => mark.properties.get("id") === nearbyPoint.id);
+    const movedMark = this._marks.find((mark) => mark.properties.get("id") === movedPoint.id);
+
+    this._marks = changeArrayElementsOrder(this._marks, nearbyMark, movedMark, pastePosition);
   }
 
   _updatePolyline() {
