@@ -1,9 +1,11 @@
 import * as React from "react";
 import DragList from "../drag-list/drag-list.jsx";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import YandexMapTracker from "../../modules/yandexMapTracker";
 
 export default function Tracker() {
+  const [points, setPoints] = useState([]);
+
   useEffect(() => {
     YandexMapTracker.init();
   }, [])
