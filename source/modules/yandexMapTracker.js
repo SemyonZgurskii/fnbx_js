@@ -103,7 +103,15 @@ class YandexMapTracker {
           const data = response.geoObjects.get(0).properties.getAll();
           mark.properties.set(data);
 
-          this._points[this._activeMarkNumber].coordinates = mark.geometry.getCoordinates();
+          const activePoint = this._points[this._activeMarkNumber];
+          const changedActivePoint = Object.assign({}, activePoint, {
+            coordinates: mark.geometry.getCoordinates(),
+            name: mark.properties.get("name"),
+          })
+
+          this._points[this._activeMarkNumber] = changedActivePoint;
+          this._pointDataChangeHandler(activePoint, changedActivePoint);
+
           this._activeMarkNumber = null;
         })
     })
