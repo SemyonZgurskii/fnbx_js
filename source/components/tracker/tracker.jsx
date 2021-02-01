@@ -9,6 +9,8 @@ export default function Tracker() {
 
   useEffect(() => {
     YandexMapTracker.init();
+    YandexMapTracker.setPointDataChangeHandler(handlePointDataChange);
+    YandexMapTracker.setPointAddHandler(handlePointAdd);
   }, [])
 
   function handleKeyDown(event) {
