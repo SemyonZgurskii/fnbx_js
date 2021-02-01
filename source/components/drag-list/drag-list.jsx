@@ -1,6 +1,11 @@
 import * as React from "react";
 import {useState} from "react";
 
+export const PastePosition = {
+  BEFORE: "before",
+  AFTER: "after"
+};
+
 const ShadowModifier = {
   TOP: "drag-list__item--shadow-top",
   BOTTOM: "drag-list__item--shadow-bottom",
