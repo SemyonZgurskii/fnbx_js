@@ -45,6 +45,23 @@ class YandexMapTracker {
       })
   }
 
+  deletePoint(pointToDelete) {
+    const pointNumber = this._points.findIndex(({id}) => id === pointToDelete.id);
+    this._points.splice(pointNumber, 1);
+
+    const markToDelete = this._marks[pointNumber];
+    this._deleteMarkFromMap(markToDelete);
+    this._marks.splice(pointNumber, 1);
+
+    this._updatePolyline();
+  }
+
+  changePointsOrder(nearbyPoint, movedPoint, pastePosition) {
+    this._points = changeArrayElementsOrder(this._points, nearbyPoint, movedPoint, pastePosition);
+    this._changeMarksOrder(nearbyPoint, movedPoint, pastePosition);
+    this._updatePolyline();
+  }
+
   setPointDataChangeHandler(handler) {
     this._pointDataChangeHandler = handler;
   }
@@ -58,10 +75,6 @@ class YandexMapTracker {
       center: [55.76, 37.64],
       zoom: 9,
     })
-  }
-
-  _addPoint(pointData) {
-    this._points.push(pointData);
   }
 
   _addMarkToMap(mark, id) {
