@@ -123,7 +123,7 @@ class YandexMapTracker {
   }
 
   _updatePolyline() {
-    if (this._points.length > 2) {
+    if (this._myPolyline) {
       const coordinates = this._points.map(({coordinates}) => coordinates);
       this._myPolyline.geometry.setCoordinates(coordinates);
     } else if (this._points.length > 1) {
