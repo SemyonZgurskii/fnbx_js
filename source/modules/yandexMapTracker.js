@@ -23,7 +23,7 @@ class YandexMapTracker {
   addPointToMap(point) {
     this._ymaps.geocode(point)
       .then((response) => {
-        if (response.geoObjects.get(0)) {
+        if (response.metaData.geocoder.found) {
           const newMapMark = response.geoObjects.get(0);
 
           const newPoint = {
