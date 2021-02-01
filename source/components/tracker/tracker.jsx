@@ -62,7 +62,11 @@ export default function Tracker() {
       </div>
       <div className="tracker__map" id="map"></div>
       <div className="tracker__points-list">
-        <DragList/>
+        <DragList
+          onPointDelete={handlePointDelete}
+          onPointReplace={handlePointsOrderChange}
+          points={points}
+        />
       </div>
     </div>
   )
