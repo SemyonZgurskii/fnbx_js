@@ -8,6 +8,8 @@ class YandexMapTracker {
     this._newPointId = 0;
     this._activeMarkNumber = null;
 
+    this._pointAddHandler = null;
+    this._pointDataChangeHandler = null;
     this.addPointToMap = this.addPointToMap.bind(this);
   }
   // TODO: обеспечить обновление this._points при изменении порядка в списке, а так же дальшейний перерендер меток на карте
@@ -39,6 +41,14 @@ class YandexMapTracker {
           this._updatePolyline();
         }
       })
+  }
+
+  setPointDataChangeHandler(handler) {
+    this._pointDataChangeHandler = handler;
+  }
+
+  setPointAddHandler(handler) {
+    this._pointAddHandler = handler;
   }
 
   _createMap() {
