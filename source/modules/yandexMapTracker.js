@@ -39,6 +39,8 @@ class YandexMapTracker {
           this._newPointId++;
 
           this._updatePolyline();
+
+          this._pointAddHandler(newPoint);
         }
       })
   }
