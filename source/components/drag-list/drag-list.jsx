@@ -84,7 +84,9 @@ export default function DragList(props) {
               onDrop={(evt) => handleDrop(evt, point)}
           >
             <p className="drag-list__name">{name}</p>
-            <button className="drag-list__close-button" type="button" aria-label="удалить пункт"></button>
+            <button className="drag-list__close-button" type="button" aria-label="удалить пункт"
+                    onClick={() => onPointDelete(point)}
+            ></button>
           </li>
         )
       })}
