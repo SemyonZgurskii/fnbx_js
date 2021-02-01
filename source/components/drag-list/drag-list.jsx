@@ -62,21 +62,7 @@ export default function DragList(props) {
 
     evt.currentTarget.classList.remove(ShadowModifier.TOP, ShadowModifier.BOTTOM);
 
-    updatePoints((prev) => {
-      const currentPoints = prev.slice();
-      const activePointIndex = currentPoints.indexOf(activePoint);
-      currentPoints.splice(activePointIndex, 1);
-
-      const pointIndex = currentPoints.indexOf(point);
-
-      if (pastePosition === PastePosition.BEFORE) {
-        currentPoints.splice(pointIndex, 0, activePoint);
-      } else {
-        currentPoints.splice(pointIndex + 1, 0, activePoint);
-      }
-
-      return currentPoints;
-    });
+    onPointReplace(point, activePoint, pastePosition);
   }
 
   function handleDragLeave(evt) {
