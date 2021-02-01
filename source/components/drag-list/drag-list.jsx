@@ -6,18 +6,8 @@ const ShadowModifier = {
   BOTTOM: "drag-list__item--shadow-bottom",
 }
 
-const PastePosition = {
-  BEFORE: "before",
-  AFTER: "after"
-}
-
-export default function DragList() {
-  const [points, updatePoints] = useState([
-      {id: 1, name: "Москва"},
-      {id: 2, name: "Санкт-Петербург"},
-      {id: 3, name: "Чебоксары"},
-      {id: 4, name: "Казань"}
-    ]);
+export default function DragList(props) {
+  const {points, onPointDelete, onPointReplace} = props;
 
   const [activePoint, setActivePoint] = useState(null);
   const [pastePosition, setPastePosition] = useState(null);
