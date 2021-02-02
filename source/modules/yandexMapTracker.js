@@ -77,6 +77,7 @@ class YandexMapTracker {
       center: [55.76, 37.64],
       zoom: 9,
     })
+    this._myMap.controls.remove("searchControl");
   }
 
   _addMarkToMap(mark, id) {
