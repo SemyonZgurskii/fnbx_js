@@ -82,6 +82,7 @@ class YandexMapTracker {
   _addMarkToMap(mark, id) {
     mark.properties.set("id", id);
     mark.options.set("draggable", true);
+    this._myMap.setCenter(mark.geometry.getCoordinates());
 
     mark.events.add("dragstart", () => {
       this._activeMarkNumber = this._points.findIndex(({id}) => id === mark.properties.get("id"));
